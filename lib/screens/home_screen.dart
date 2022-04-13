@@ -5,9 +5,37 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    const textSize = TextStyle(fontSize: 30);
+
+    int counter = 0;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('HomeScreen'),
+        elevation: 10,
+      ),
       body: Center(
-        child: Text('HomeScreen'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Clicks counter',
+              style: textSize,
+            ),
+            Text(
+              '$counter',
+              style: textSize,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        elevation: 10,
+        onPressed: () {
+          counter++;
+        },
       ),
     );
   }
